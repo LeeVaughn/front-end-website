@@ -1,0 +1,28 @@
+{
+  "name": "front-end-website",
+  "version": "1.0.0",
+  "description": "A front-end website deployed using a Gulp build process.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeVaughn/front-end-website.git"
+  },
+  "keywords": [
+    "Gulp",
+    "Treehouse",
+    "Project 8"
+  ],
+  "author": "Daniel Lee Vaughn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeVaughn/front-end-website/issues"
+  },
+  "homepage": "https://github.com/LeeVaughn/front-end-website#readme"
+}
