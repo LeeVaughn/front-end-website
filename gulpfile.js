@@ -9,7 +9,7 @@ const clean = require("gulp-clean-css");
 
 // concatenates and minifies JavaScript files
 gulp.task("scripts", function () {
-    gulp.src(["js/circle/autogrow.js", "js/circle/circle.js", "js/global.js"])
+    return gulp.src(["js/circle/autogrow.js", "js/circle/circle.js", "js/global.js"])
     .pipe(maps.init())
     .pipe(concat("all.min.js"))
     .pipe(uglify())
@@ -19,13 +19,18 @@ gulp.task("scripts", function () {
 
 // compliles SCSS files into CSS, then concatenates and minifies them
 gulp.task("styles", function () {
-    gulp.src("sass/global.scss")
+    return gulp.src("sass/global.scss")
     .pipe(maps.init())
     .pipe(sass())
     .pipe(concat("all.min.css"))
     .pipe(clean())
     .pipe(maps.write("./"))
     .pipe(gulp.dest("dist/styles"));
+});
+
+// gulp build command will run scripts and styles
+gulp.task("build", ["scripts", "styles"], function () {
+
 });
 
 gulp.task("default", ["build"], function () {
