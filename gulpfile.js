@@ -28,6 +28,10 @@ gulp.task("styles", function () {
     .pipe(gulp.dest("dist/styles"));
 });
 
+gulp.task("watchSass", function () {
+    gulp.watch(["sass/**/*.scss", "sass/**/*.sass"], ["styles"]);
+});
+
 // gulp build command will run scripts and styles
 gulp.task("build", ["scripts", "styles"], function () {
 
