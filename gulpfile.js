@@ -15,7 +15,7 @@ const options = {
     dist: "dist"
 };
 
-// creates source map for JavaScript files, concatenates and minifies them and saves the file to the dist folder
+// creates source map for JavaScript files, concatenates and minifies them, then saves the file to the dist folder
 gulp.task("scripts", function () {
     return gulp.src([options.src + "/js/**"])
         .pipe(maps.init())
