@@ -80,8 +80,7 @@ gulp.task("webserver", function () {
         }));
 });
 
-// starts webserver, uses watchSass task as a dependency
+// uses watchSass as a dependency, then runs clean task first, the array of tasks in parallel, then the webserver task
 gulp.task("default", ["watchSass"], function () {
-    // runSequence("clean", ["scripts", "styles", "images", "html", "icons"], "webserver");
-    runSequence(["build"], "webserver");
+    runSequence("clean", ["scripts", "styles", "images", "html", "icons"], "webserver");
 });
