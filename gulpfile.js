@@ -7,36 +7,41 @@ const uglify = require("gulp-uglify");
 const sass = require("gulp-sass");
 const cleanCSS = require("gulp-clean-css");
 const clean = require("del");
+const options = {
+    src: "src",
+    dist: "dist"
+};
 
 // concatenates and minifies JavaScript files
 gulp.task("scripts", function () {
-    return gulp.src(["js/circle/autogrow.js", "js/circle/circle.js", "js/global.js"])
+    // return gulp.src(["js/circle/autogrow.js", "js/circle/circle.js", "js/global.js"])
+    return gulp.src([options.src + "/js/**"])
         .pipe(maps.init())
         .pipe(concat("all.min.js"))
         .pipe(uglify())
         .pipe(maps.write("./"))
-        .pipe(gulp.dest("dist/scripts"));
+        .pipe(gulp.dest(options.dist + "/scripts"));
 });
 
 // compliles SCSS files into CSS, then concatenates and minifies them
 gulp.task("styles", function () {
-    return gulp.src("sass/global.scss")
+    return gulp.src(options.src + "/sass/global.scss")
         .pipe(maps.init())
         .pipe(sass())
         .pipe(concat("all.min.css"))
         .pipe(cleanCSS())
         .pipe(maps.write("./"))
-        .pipe(gulp.dest("dist/styles"));
+        .pipe(gulp.dest(options.dist + "/styles"));
 });
 
 // watches for changes to Sass files and then runs the gulp styles command
 gulp.task("watchSass", function () {
-    gulp.watch(["sass/**/*.scss", "sass/**/*.sass"], ["styles"]);
+    gulp.watch(options.src + "/sass/**", ["styles"]);
 });
 
 // removes previously created dist directory and contents
 gulp.task("clean", function () {
-    return del("dist");
+    return clean("dist");
 });
 
 // gulp build command will run scripts and styles
