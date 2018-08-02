@@ -70,7 +70,7 @@ gulp.task("build", function () {
     return runSequence("clean", ["scripts", "styles", "images", "html", "icons"]);
 });
 
-// creates webserver on port 300 with live reload, uses build task as a dependency
+// creates webserver on port 300 with live reload
 gulp.task("webserver", function () {
     return gulp.src("dist")
         .pipe(webserver({
@@ -80,7 +80,7 @@ gulp.task("webserver", function () {
         }));
 });
 
-// uses watchSass as a dependency, then runs clean task first, the array of tasks in parallel, then the webserver task
-gulp.task("default", ["watchSass"], function () {
+// takes build and watchSass as dependencies, then runs clean task, the task array in parallel, then the webserver task
+gulp.task("default", ["build", "watchSass"], function () {
     runSequence("clean", ["scripts", "styles", "images", "html", "icons"], "webserver");
 });
