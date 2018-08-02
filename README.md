@@ -11,7 +11,7 @@ This project was created as a part of the Treehouse Full Stack JavaScript Techde
 * Deployes a front-end website using a Gulp build process and provided files
 * Concatenates and minifies JavaScript files
 * Compiles SCSS into a concatenated and minified CSS file
-* Generates JavaScript and CSS source maps
+* Generates source maps for JavaScript and CSS files
 * Compresses JPEG and PNG files
 * Running ```npm install``` installs relevant dependencies
 
