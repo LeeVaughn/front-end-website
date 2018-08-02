@@ -6,6 +6,7 @@ const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const sass = require("gulp-sass");
 const cleanCSS = require("gulp-clean-css");
+const imageMin = require("gulp-imagemin");
 const clean = require("del");
 const options = {
     src: "src",
@@ -32,6 +33,12 @@ gulp.task("styles", function () {
         .pipe(cleanCSS())
         .pipe(maps.write("./"))
         .pipe(gulp.dest(options.dist + "/styles"));
+});
+
+gulp.task("images", function () {
+    return gulp.src(options.src + "/images/**")
+        .pipe(imageMin())
+        .pipe(gulp.dest(options.dist + "/content"));
 });
 
 // watches for changes to Sass files and then runs the gulp styles command
