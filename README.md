@@ -1,4 +1,4 @@
-# Front End Website Deployed with Gulp (Work in Progress)
+# Front End Website Deployed with Gulp
 
 This project uses a Gulp build process to deploy a front-end website.
 
